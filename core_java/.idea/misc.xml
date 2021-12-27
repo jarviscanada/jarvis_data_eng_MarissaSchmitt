@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/grep/pom.xml" />
+        <option value="$PROJECT_DIR$/jdbc/pom.xml" />
       </list>
     </option>
   </component>

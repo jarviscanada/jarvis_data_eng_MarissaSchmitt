@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="grep" />
+        <module name="jdbc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="grep" target="1.8" />
+      <module name="jdbc" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>
