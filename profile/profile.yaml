@@ -84,7 +84,7 @@ professional_experience:
     company: "Jarvis"
     duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing (continue)"
+    description: "Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing."
   - title: "Unpaid Intern"
     company: "Otekha Health"
     duration: "2021"
