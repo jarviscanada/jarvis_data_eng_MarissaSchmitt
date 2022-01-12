@@ -1,0 +1,117 @@
+# Preferred name (Characters only)
+name: "Marissa Schmitt"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "I am a recent graduate from Conestoga College where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skillset as I have learned a variety of programming languages during the duration of my program. During my time at Conestoga College, I learned about web development, mobile development, relational databases, object-oriented programming, and assembly language. My interest in software engineering started in high school where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering whether it be frontend, backend, or working with a database directly. Currently I am working as a software developer/data engineer at Jarvis to improve my skills by learning about core Java programming, design patterns, Maven, and agile development."
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git
+  # At least 5 skills
+  competent:
+    - C++
+    - C#
+    - C
+    - JavaScript (Vue and ReactJS)
+    - MongoDB
+  # At least 5 skills
+  familiar:
+    - .NET
+    - Swift
+    - Kotlin
+    - Assembly language
+    - Waterfall Methodology
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Implemented a Linux cluster monitoring agent to manage and insert resource usage information into a PostgreSQL database. The host usage information was collected through bash commands and automated using crontab."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: In-progress"
+      - "JDBC App: Developed an application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses JDBC, PSQL, Maven, Docker, DAO, and DTOs."
+      - "Grep App: Implemented an application to simulate the grep command available within Linux operating systems. This app was developed using Java, Maven, and Docker. The grep app allows a user to specify a regex, root directory, and output file. The files found within the root directory and any subsequent subdirectories are read then the retrieved lines are compared to the defined regex pattern. If the line matches the regex, it is then written to the output file."
+  - name: "Springboot App"
+    git_url: "/springboot"
+    description: ""
+  - name: "Python Data Analytics"
+    git_url: "/python_data_anlytics"
+    description: ""
+  - name: "Hadoop"
+    git_url: "/hadoop"
+    description: ""
+  - name: "Spark"
+    git_url: "/spark"
+    description: ""
+  - name: "Cloud/DevOps"
+    git_url: "/cloud_devops"
+    description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Electronic Medical Records System"
+    #URL is optional
+    git_url: 
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Created a proof-of-concept EMR system for Otekha Health. This project was built using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API."
+
+  - name: "Point-of-Sale System"
+    git_url:
+    description: "Implemented a Point-of-Sale system for a Relational Database course within my program. This system used MySQL and the user was able to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with database and communicating the data retrieved from the constructed queries in a user-friendly format."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2021-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing."
+  - title: "Unpaid Intern"
+    company: "Otekha Health"
+    duration: "2021"
+    description: "Implemented a Electronic Medical Records proof-of-concept system as requested by the client. The tech stack of the system was ReactJS for the frontend and a Java RESTful server for the backend that implements HAPI API, MongoDB, MySQL, and Redis. It was a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC)."  
+  - title: "Co-op Student"
+    company: "Focus Computers Inc"
+    duration: "2018"
+    description: "Performed repairs on customers' computers using different software tools and problem-solving techniques. "
+
+#List of edcuation
+education: 
+  - school_name: "Conestoga College"
+    duration: "2018-2021"
+    degree: "Software Engineering Technology"
+    department: "Applied Computer Science and IT"
+    # optional
+    awards_achievements: 
+      - "Graduated with Distinction"
+      - "GPA: 3.49"
+
+#Optional section
+others:
+    #category
+  - title: "Interests"
+    #list of items
+    bullets:
+      - "Databases"
+      - "Big Data"
+      - "Backend development"
+      - "Learning new technologies"
