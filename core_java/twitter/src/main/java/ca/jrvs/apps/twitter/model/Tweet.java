@@ -11,7 +11,9 @@ public class Tweet {
 
     String source;
 
-    User user;
+    Coordinates coordinates;
+
+    Entities entities;
 
     public String getCreatedAt() {
         return createdAt;
@@ -53,11 +55,19 @@ public class Tweet {
         this.source = source;
     }
 
-    public User getUser() {
-        return user;
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public Entities getEntities() {
+        return entities;
+    }
+
+    public void setEntities(Entities entities) {
+        this.entities = entities;
     }
 }

@@ -3,6 +3,7 @@ This application is used to interact with a Postgres database through the use of
 It has CRUD (Create, Read, Update, Delete) operations defined within the Data Access Object class to interact with the data
 and retrieve a result set of queries from the database. The technologies used within the project are JDBC, Maven, PSQL, Docker,
 DAO, and DTO.
+<!--- test-->
 
 # Implementation
 This section explains the entity relationship of the hplussport database and the design patterns to be used within the project.

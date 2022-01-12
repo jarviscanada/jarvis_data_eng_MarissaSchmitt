@@ -1,12 +1,12 @@
 # Marissa Schmitt . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+I am a recent graduate from Conestoga College where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skillset as I have learned a variety of programming languages during the duration of my program. During my time at Conestoga College, I learned about web development, mobile development, relational databases, object-oriented programming, and assembly language. My interest in software engineering started in high school where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering whether it be frontend, backend, or working with a database directly. Currently I am working as a software developer/data engineer at Jarvis to improve my skills by learning about core Java programming, design patterns, Maven, and agile development.
 
 ## Skills
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** C++, C#, C, JavaScript, MongoDB
+**Competent:** C++, C#, C, JavaScript (Vue and ReactJS), MongoDB
 
 **Familiar:** .NET, Swift, Kotlin, Assembly language, Waterfall Methodology
 
@@ -19,9 +19,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MarissaSch
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
+  - Twitter App:
+  - JDBC App: Developed an application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses JDBC, PSQL, Maven, Docker, DAO, and DTOs.
+  - Grep App: Implemented an application to simulate the grep command available within Linux operating systems. This app was developed using Java, Maven, and Docker. The grep app allows a user to specify a regex, root directory, and output file. The files found within the root directory and any subsequent subdirectories are read then the retrieved lines are compared to the defined regex pattern. If the line matches the regex, it is then written to the output file.
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/springboot)]: Not Started
 
@@ -35,18 +35,18 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MarissaSch
 
 
 ## Highlighted Projects
-**Electronic Medical Records System**: Created a proof-of-concept EMR system for Otekha Health. This project was built using React.js, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API.
+**Electronic Medical Records System**: Created a proof-of-concept EMR system for Otekha Health. This project was built using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API.
 
-**Machine Learning**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Point-of-Sale System**: Implemented a Point-of-Sale system for a Relational Database course within my program. This system used MySQL and the user was able to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with database and communicating the data retrieved from the constructed queries in a user-friendly format.
 
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2021-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Software Developer, Jarvis (2021-present)**: Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing.
 
-**Unpaid Intern, Otekha Health (2021)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Unpaid Intern, Otekha Health (2021)**: Implemented a Electronic Medical Records proof-of-concept system as requested by the client. The tech stack of the system was ReactJS for the frontend and a Java RESTful server for the backend that implements HAPI API, MongoDB, MySQL, and Redis. It was a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC).
 
-**Co-op Student, Focus Computers Inc. (2018)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Co-op Student, Focus Computers Inc. (2018)**: Performed repairs on customers' computers using different software tools and problem-solving techniques. 
 
 
 ## Education
@@ -56,8 +56,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MarissaSch
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- Databases
+- Big Data
+- Backend development
+- Learning new technologies
