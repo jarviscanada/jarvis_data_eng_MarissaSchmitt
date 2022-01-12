@@ -4,8 +4,15 @@ import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
+import oauth.signpost.exception.OAuthCommunicationException;
+import oauth.signpost.exception.OAuthExpectationFailedException;
+import oauth.signpost.exception.OAuthMessageSignerException;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +20,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
+
 import ca.jrvs.apps.twitter.example.JsonParser;
+import org.springframework.http.HttpMethod;
 
 
 public class TwitterDao implements CrdDao<Tweet, String>{
@@ -21,9 +31,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     //URI Constants
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
-    private static final String SHOW_PATH = "/1.1/statuses/show/";
-    private static final String DELETE_PATH = "/1.1/statuses/destroy/";
-    private static final String JSON_URI = ".json";
+    private static final String SHOW_PATH = "/1.1/statuses/show.json";
+    private static final String DELETE_PATH = "/1.1/statuses/destroy.json";
     //URI Symbols
     private static final String QUERY_SYM = "?";
     private static final String AMPERSAND = "&";
@@ -96,7 +105,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     }
 
     private URI getPostUri(Tweet entity) throws URISyntaxException, UnsupportedEncodingException{
-        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status=" + entity.getText());
+        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + entity.getText());
         return uri;
     }
 
@@ -105,9 +114,12 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
         try{
-            URI uri = new URI(API_BASE_URI + SHOW_PATH + s + JSON_URI);
-            HttpGet request = new HttpGet(uri);
-        } catch (URISyntaxException e) {
+            URI uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s );
+            HttpResponse response = retrieveResponse(uri, HttpMethod.GET);
+            String jsonStr = EntityUtils.toString(response.getEntity());
+            Tweet tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+            return tweet;
+        } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
         return null;
@@ -115,6 +127,47 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
     @Override
     public Tweet deleteById(String s) {
+        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
+        consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
+        try{
+            URI uri = new URI(API_BASE_URI + DELETE_PATH + QUERY_SYM + "id" + EQUAL + s );
+            HttpResponse response = retrieveResponse(uri, HttpMethod.POST);
+            String jsonStr = EntityUtils.toString(response.getEntity());
+            Tweet tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+            return tweet;
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private HttpResponse retrieveResponse(URI uri, HttpMethod method)
+    {
+        OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
+        consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
+        HttpClient httpClient = HttpClientBuilder.create().build();
+
+        if(method == HttpMethod.GET)
+        {
+            HttpGet getRequest = new HttpGet(uri);
+            try{
+                consumer.sign(getRequest);
+                return httpClient.execute(getRequest);
+            } catch(OAuthMessageSignerException | OAuthExpectationFailedException |
+                    OAuthCommunicationException | IOException e) {
+                e.printStackTrace();
+            }
+        } else if (method == HttpMethod.POST){
+            HttpPost postRequest = new HttpPost(uri);
+            try{
+                consumer.sign(postRequest);
+                return httpClient.execute(postRequest);
+            } catch(OAuthMessageSignerException | OAuthExpectationFailedException |
+                    OAuthCommunicationException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         return null;
     }
 }
