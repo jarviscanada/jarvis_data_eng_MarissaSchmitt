@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_MarissaSch
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: "I am a recent graduate from Conestoga College where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skillset as I have learned a variety of programming languages during the duration of my program. During my time at Conestoga College, I learned about web development, mobile development, relational databases, object-oriented programming, and assembly language. My interest in software engineering started in high school where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering whether it be frontend, backend, or working with a database directly. Currently I am working as a software developer/data engineer at Jarvis to improve my skills by learning about core Java programming, design patterns, Maven, and agile development."
+summary: "I am a recent graduate from Conestoga College, where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skill set as I have learned various programming languages during the duration of my program. During my time at Conestoga College, I have gained experience in web development, mobile development, RDBMS, OOP, and assembly language. My interest in software engineering started in high school, where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering, whether front-end, back-end, or directly working with a database. Currently, I am working as a software developer and data engineer at Jarvis to improve my skills by learning the latest technologies."
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -38,28 +38,13 @@ jarvis_projects:
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Implemented a Linux cluster monitoring agent to manage and insert resource usage information into a PostgreSQL database. The host usage information was collected through bash commands and automated using crontab."
+    description: "Implemented a Linux cluster monitoring agent to manage and insert resource data, such as CPU, RAM, disk usage into a PostgreSQL database hosted by Docker. The host usage information was collected through bash commands and automated using crontab. The data collected by the app can be returned as a result set by using SQL queries which also includes detecting crontab insertion failure using SQL aggregate functions to compare the number of entries within a span of five minutes. Other information, such as retrieving number of CPUs and amount of total memory can be used for data analytics when query the database. This app was developed and run within a CentOS7 environment."
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
       - "Twitter App: In-progress"
-      - "JDBC App: Developed an application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses JDBC, PSQL, Maven, Docker, DAO, and DTOs."
-      - "Grep App: Implemented an application to simulate the grep command available within Linux operating systems. This app was developed using Java, Maven, and Docker. The grep app allows a user to specify a regex, root directory, and output file. The files found within the root directory and any subsequent subdirectories are read then the retrieved lines are compared to the defined regex pattern. If the line matches the regex, it is then written to the output file."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+      - "JDBC App: Developed a Java application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses Java 8, RDBMS, JDBC, PSQL, Maven, Docker, DAO, and DTOs."
+      - "Grep App: Implemented an application to simulate the Linux grep command using core Java, Maven, and Docker. It uses Java 8 lambdas and stream APIs to optimize the memory usage. This app is deployed on DockerHub and was developed/debugged using IntelliJ."
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -69,11 +54,11 @@ highlighted_projects:
     #URL is optional
     git_url: 
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Created a proof-of-concept EMR system for Otekha Health. This project was built using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API."
+    description: "Created a proof-of-concept EMR system for Otekha Health using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API. The development of this application followed an agile methodology and a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC). The application allowed for users to customize the widgets that would be on their screen at once, including calendar, test results, medication, etc. Information could be added, removed, or modified within each component on the screen. The calendar application could be used to create a new event and bring the user to a new window where the corresponding patients' data would be displayed. The system was designed with the intention of being a customizable version of the OSCAR EMR system."
 
   - name: "Point-of-Sale System"
     git_url:
-    description: "Implemented a Point-of-Sale system for a Relational Database course within my program. This system used MySQL and the user was able to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with database and communicating the data retrieved from the constructed queries in a user-friendly format."
+    description: "Implemented a Point-of-Sale system using .NET and MySQL. This system allows users to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with the database and communicating the data retrieved from the constructed queries in a user-friendly format. The app was built on event-driven architecture where CRUD operations would be executed based on the event evoked by the user. It also allows for receipt creation simulation when a new order is created where the virtual receipt displays the current date of the new record, id, list of items along with their assigned prices, and includes the calculated total."
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -84,11 +69,11 @@ professional_experience:
     company: "Jarvis"
     duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing."
-  - title: "Unpaid Intern"
+    description: "Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with the team. Java, Linux, SQL, Docker, and bash scripts were used in developing. I also gained more experience with team collaboration and organization skills related to scrum through the use of Notion for projects to manage my sprint backlog. Leadership was another soft skill gained from the Jarvis opportunity since every new sprint allows a developer to take on the role of team lead and direct the group in scrum meetings. My ability to problem-solve has increased because of the challenges and questions posed by the assignments to ensure that I understand the technical aspects of the projects being developed and can relate the concepts to my prior knowledge."
+  - title: "Intern"
     company: "Otekha Health"
     duration: "2021"
-    description: "Implemented a Electronic Medical Records proof-of-concept system as requested by the client. The tech stack of the system was ReactJS for the frontend and a Java RESTful server for the backend that implements HAPI API, MongoDB, MySQL, and Redis. It was a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC)."  
+    description: "Established new soft skills from working with Otekha Health including team collaboration within a remote agile environment, the ability to learn unfamiliar technologies and understand requirements based on virtual stand-up meeting discussions. Also, the ability to write software documentation such as an agile Software Requirement Specification (SRS) about the system. Refer to Electronic Medical Records System in Highlighted Projects section for system details."  
   - title: "Co-op Student"
     company: "Focus Computers Inc"
     duration: "2018"
@@ -105,13 +90,8 @@ education:
       - "Graduated with Distinction"
       - "GPA: 3.49"
 
-#Optional section
 others:
-    #category
-  - title: "Interests"
-    #list of items
-    bullets:
-      - "Databases"
-      - "Big Data"
-      - "Backend development"
-      - "Learning new technologies"
+ - title: "Activities/Hobbies"
+   bullets:
+   - "Reading"
+   - "Learning new technologies"

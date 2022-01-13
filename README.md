@@ -1,6 +1,6 @@
 # Marissa Schmitt . Jarvis Consulting
 
-I am a recent graduate from Conestoga College where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skillset as I have learned a variety of programming languages during the duration of my program. During my time at Conestoga College, I learned about web development, mobile development, relational databases, object-oriented programming, and assembly language. My interest in software engineering started in high school where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering whether it be frontend, backend, or working with a database directly. Currently I am working as a software developer/data engineer at Jarvis to improve my skills by learning about core Java programming, design patterns, Maven, and agile development.
+I am a recent graduate from Conestoga College, where I studied Software Engineering Technology. I am excited to be challenged by new technologies and expand my skill set as I have learned various programming languages during the duration of my program. During my time at Conestoga College, I have gained experience in web development, mobile development, RDBMS, OOP, and assembly language. My interest in software engineering started in high school, where I pursued many computer science and computer engineering courses. I am intrigued by all aspects of software engineering, whether front-end, back-end, or directly working with a database. Currently, I am working as a software developer and data engineer at Jarvis to improve my skills by learning the latest technologies.
 
 ## Skills
 
@@ -15,36 +15,26 @@ I am a recent graduate from Conestoga College where I studied Software Engineeri
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/linux_sql)]: Implemented a Linux cluster monitoring agent to manage and insert resource usage information into a PostgreSQL database. The host usage information was collected through bash commands and automated using crontab.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/linux_sql)]: Implemented a Linux cluster monitoring agent to manage and insert resource data, such as CPU, RAM, disk usage into a PostgreSQL database hosted by Docker. The host usage information was collected through bash commands and automated using crontab. The data collected by the app can be returned as a result set by using SQL queries which also includes detecting crontab insertion failure using SQL aggregate functions to compare the number of entries within a span of five minutes. Other information, such as retrieving number of CPUs and amount of total memory can be used for data analytics when query the database. This app was developed and run within a CentOS7 environment.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/core_java)]:
       
   - Twitter App: In-progress
-  - JDBC App: Developed an application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses JDBC, PSQL, Maven, Docker, DAO, and DTOs.
-  - Grep App: Implemented an application to simulate the grep command available within Linux operating systems. This app was developed using Java, Maven, and Docker. The grep app allows a user to specify a regex, root directory, and output file. The files found within the root directory and any subsequent subdirectories are read then the retrieved lines are compared to the defined regex pattern. If the line matches the regex, it is then written to the output file.
-
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_MarissaSchmitt/tree/master/cloud_devops)]: Not Started
+  - JDBC App: Developed a Java application that uses Java Database Connectivity (JDBC) to insert and perform CRUD operations on data stored in a Docker-hosted PostgreSQL database. This project uses Java 8, RDBMS, JDBC, PSQL, Maven, Docker, DAO, and DTOs.
+  - Grep App: Implemented an application to simulate the Linux grep command using core Java, Maven, and Docker. It uses Java 8 lambdas and stream APIs to optimize the memory usage. This app is deployed on DockerHub and was developed/debugged using IntelliJ.
 
 
 ## Highlighted Projects
-**Electronic Medical Records System**: Created a proof-of-concept EMR system for Otekha Health. This project was built using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API.
+**Electronic Medical Records System**: Created a proof-of-concept EMR system for Otekha Health using ReactJS, Java RESTful server, Docker, MongoDB, MySQL, Redis, and HAPI-FHIR API. The development of this application followed an agile methodology and a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC). The application allowed for users to customize the widgets that would be on their screen at once, including calendar, test results, medication, etc. Information could be added, removed, or modified within each component on the screen. The calendar application could be used to create a new event and bring the user to a new window where the corresponding patients' data would be displayed. The system was designed with the intention of being a customizable version of the OSCAR EMR system.
 
-**Point-of-Sale System**: Implemented a Point-of-Sale system for a Relational Database course within my program. This system used MySQL and the user was able to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with database and communicating the data retrieved from the constructed queries in a user-friendly format.
+**Point-of-Sale System**: Implemented a Point-of-Sale system using .NET and MySQL. This system allows users to update, delete, and retrieve data through the .NET WPF frontend. This project highlighted aspects of working with the database and communicating the data retrieved from the constructed queries in a user-friendly format. The app was built on event-driven architecture where CRUD operations would be executed based on the event evoked by the user. It also allows for receipt creation simulation when a new order is created where the virtual receipt displays the current date of the new record, id, list of items along with their assigned prices, and includes the calculated total.
 
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2021-present)**: Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with team. Java, Linux, SQL, Docker, and bash scripts were used in developing.
+**Software Developer, Jarvis (2021-present)**: Developed a variety of different applications using an Agile methodology. Acted as a team lead role to organize and lead daily scrum meetings with the team. Java, Linux, SQL, Docker, and bash scripts were used in developing. I also gained more experience with team collaboration and organization skills related to scrum through the use of Notion for projects to manage my sprint backlog. Leadership was another soft skill gained from the Jarvis opportunity since every new sprint allows a developer to take on the role of team lead and direct the group in scrum meetings. My ability to problem-solve has increased because of the challenges and questions posed by the assignments to ensure that I understand the technical aspects of the projects being developed and can relate the concepts to my prior knowledge.
 
-**Unpaid Intern, Otekha Health (2021)**: Implemented a Electronic Medical Records proof-of-concept system as requested by the client. The tech stack of the system was ReactJS for the frontend and a Java RESTful server for the backend that implements HAPI API, MongoDB, MySQL, and Redis. It was a Docker-built architecture. Synthea was used to generate sample patient FHIR data for testing purposes. MongoDB was used to hold the sample FHIR data retrieved from the RESTful server. MySQL was used for authentication within the app. Redis was used for access control (NGAC).
+**Intern, Otekha Health (2021)**: Established new soft skills from working with Otekha Health including team collaboration within a remote agile environment, the ability to learn unfamiliar technologies and understand requirements based on virtual stand-up meeting discussions. Also, the ability to write software documentation such as an agile Software Requirement Specification (SRS) about the system. Refer to Electronic Medical Records System in Highlighted Projects section for system details.
 
 **Co-op Student, Focus Computers Inc (2018)**: Performed repairs on customers' computers using different software tools and problem-solving techniques. 
 
@@ -56,7 +46,5 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_MarissaSch
 
 
 ## Miscellaneous
-- Databases
-- Big Data
-- Backend development
+- Reading
 - Learning new technologies
