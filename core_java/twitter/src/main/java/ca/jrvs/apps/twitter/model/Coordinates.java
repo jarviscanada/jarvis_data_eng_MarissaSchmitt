@@ -1,18 +1,20 @@
 package ca.jrvs.apps.twitter.model;
 
 import java.util.Collection;
+import java.util.List;
 
 public class Coordinates {
-    Collection<Float> coordinates;
+    //Collection<Float> coordinates;
+    List<Float> coordinates;
 
     String type;
 
 
-    public Collection<Float> getCoordinates() {
+    public List<Float> getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Collection<Float> coordinates) {
+    public void setCoordinates(List<Float> coordinates) {
         this.coordinates = coordinates;
     }
 

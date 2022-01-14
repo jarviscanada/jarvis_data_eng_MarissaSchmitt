@@ -2,6 +2,7 @@ package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
+import com.google.gdata.util.common.base.PercentEscaper;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import oauth.signpost.exception.OAuthCommunicationException;
@@ -13,6 +14,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -47,7 +49,6 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     private static final int HTTP_OK = 200;
 
     private HttpHelper httpHelper;
-    private JsonParser JsonUtil;
 
     @Autowired
     public TwitterDao(HttpHelper httpHelper){
@@ -63,12 +64,12 @@ public class TwitterDao implements CrdDao<Tweet, String>{
             throw new IllegalArgumentException("Invalid tweet input", e);
         }
         //executing the http request
-        HttpResponse httpResponse = httpHelper.httpPost(uri);
+        HttpResponse response = httpHelper.httpPost(uri);
 
-        return null;
+        return parseResponseBody(response, HTTP_OK);
     }
 
-    private Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode)
+    Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode)
     {
         Tweet tweet = null;
 
@@ -96,7 +97,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         }
 
         try{
-            tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+            tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
         } catch(IOException e) {
             throw new RuntimeException("Unable to convert JSON string to Object", e);
         }
@@ -105,7 +106,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     }
 
     private URI getPostUri(Tweet entity) throws URISyntaxException, UnsupportedEncodingException{
-        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + entity.getText());
+        PercentEscaper percentEscaper = new PercentEscaper("", false);
+        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(entity.getText()));
         return uri;
     }
 
@@ -117,7 +119,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
             URI uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s );
             HttpResponse response = retrieveResponse(uri, HttpMethod.GET);
             String jsonStr = EntityUtils.toString(response.getEntity());
-            Tweet tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+            Tweet tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
             return tweet;
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
@@ -133,7 +135,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
             URI uri = new URI(API_BASE_URI + DELETE_PATH + QUERY_SYM + "id" + EQUAL + s );
             HttpResponse response = retrieveResponse(uri, HttpMethod.POST);
             String jsonStr = EntityUtils.toString(response.getEntity());
-            Tweet tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
+            Tweet tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
             return tweet;
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
@@ -141,7 +143,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         return null;
     }
 
-    private HttpResponse retrieveResponse(URI uri, HttpMethod method)
+    private static HttpResponse retrieveResponse(URI uri, HttpMethod method)
     {
         OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
         consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
@@ -169,5 +171,25 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         }
 
         return null;
+    }
+    public static class TweetUtil
+    {
+        public static Tweet buildTweet(String text, Double lon, Double lat)
+        {
+            OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
+            consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
+            PercentEscaper percentEscaper = new PercentEscaper("", false);
+            try{
+                URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(text)
+                        + AMPERSAND + "lat" + EQUAL + lat + AMPERSAND + "long" + EQUAL + lon);
+                HttpResponse response = retrieveResponse(uri, HttpMethod.POST);
+                String jsonStr = EntityUtils.toString(response.getEntity());
+                Tweet tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
+                return tweet;
+            }catch (URISyntaxException | IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
     }
 }
