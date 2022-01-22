@@ -1,6 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
+import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
 import com.google.gdata.util.common.base.PercentEscaper;
 import oauth.signpost.OAuthConsumer;
@@ -22,7 +23,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import ca.jrvs.apps.twitter.example.JsonParser;
 import org.springframework.http.HttpMethod;
@@ -176,7 +179,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     {
         public static Tweet buildTweet(String text, Double lon, Double lat)
         {
-            OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
+            /*OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
             consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
             PercentEscaper percentEscaper = new PercentEscaper("", false);
             try{
@@ -189,7 +192,16 @@ public class TwitterDao implements CrdDao<Tweet, String>{
             }catch (URISyntaxException | IOException e) {
                 e.printStackTrace();
             }
-            return null;
+            return null;*/
+            Tweet tweet = new Tweet();
+            Coordinates coordinatesObj = new Coordinates();
+            List<Double> coordList = new ArrayList<>();
+            coordList.add(lat);
+            coordList.add(lon);
+            tweet.setText(text);
+            coordinatesObj.setCoordinates(coordList);
+            tweet.setCoordinates(coordinatesObj);
+            return tweet;
         }
     }
 }

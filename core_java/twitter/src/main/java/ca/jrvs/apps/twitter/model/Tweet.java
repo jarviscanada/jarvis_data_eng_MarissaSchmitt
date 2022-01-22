@@ -1,18 +1,27 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Tweet {
+    @JsonProperty("created_at")
     String createdAt;
 
-    Integer tweetId;
+    @JsonProperty("id")
+    Long tweetId;
 
+    @JsonProperty("id_str")
     String idStr;
 
+    @JsonProperty("text")
     String text;
 
+    @JsonProperty("source")
     String source;
 
+    @JsonProperty("coordinates")
     Coordinates coordinates;
 
+    @JsonProperty("entities")
     Entities entities;
 
     public String getCreatedAt() {
@@ -23,11 +32,11 @@ public class Tweet {
         this.createdAt = createdAt;
     }
 
-    public Integer getTweetId() {
+    public Long getTweetId() {
         return tweetId;
     }
 
-    public void setTweetId(Integer tweetId) {
+    public void setTweetId(Long tweetId) {
         this.tweetId = tweetId;
     }
 

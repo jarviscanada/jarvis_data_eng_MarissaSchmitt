@@ -1,8 +1,12 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserMention {
+    @JsonProperty("id")
     int userId;
 
+    @JsonProperty("id_str")
     String userIdString;
 
     int[] indices;

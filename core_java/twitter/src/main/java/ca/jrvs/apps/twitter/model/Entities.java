@@ -1,8 +1,12 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Entities {
+    @JsonProperty("hastags")
     Hashtag[] hashtags;
 
+    @JsonProperty("user_mentions")
     UserMention[] userMentions;
 
     public Hashtag[] getHashtags() {

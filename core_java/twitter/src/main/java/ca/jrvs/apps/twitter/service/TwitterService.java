@@ -13,7 +13,12 @@ public class TwitterService implements Service{
 
     @Override
     public Tweet postTweet(Tweet tweet) {
-        return null;
+        validatePostTweet(tweet);
+        return (Tweet) dao.create(tweet);
+    }
+
+    private void validatePostTweet(Tweet tweet){
+
     }
 
     @Override

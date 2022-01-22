@@ -40,7 +40,6 @@ public class TwitterDaoIntTest {
         Double lon = -1d;
 
         Tweet postTweet = TwitterDao.TweetUtil.buildTweet(text, lon, lat);
-        //System.out.println(JsonUtil.toPrettyJson(postTweet));
         System.out.println(JsonUtil.toJson(postTweet, true, false));
         Tweet tweet = dao.create(postTweet);
 
@@ -49,5 +48,22 @@ public class TwitterDaoIntTest {
         assertEquals(2, tweet.getCoordinates().getCoordinates().size());
         assertEquals(lon, tweet.getCoordinates().getCoordinates().get(0));
         assertEquals(lat, tweet.getCoordinates().getCoordinates().get(1));
+    }
+
+    @Test
+    public void findById() {
+        Tweet tweet = dao.findById("1234");
+        assertEquals("Tue Apr 04 19:35:51 +0000 2006",tweet.getCreatedAt());
+        assertNotNull(tweet.getText());
+    }
+
+    @Test
+    public void deleteById() {
+        //update string id with newly created tweet ID
+        String id = "1484371922720747522";
+        Tweet tweet = dao.deleteById(id);
+        assertEquals(id, tweet.getTweetId());
+        assertNotNull(tweet);
+        assertNotNull(tweet.getText());
     }
 }

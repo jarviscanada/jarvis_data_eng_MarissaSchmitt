@@ -69,4 +69,18 @@ public class TwitterDaoUnitTest {
         assertNotNull(tweet.getText());
     }
 
+
+    @Test
+    public void postTweet() throws Exception
+    {
+
+    }
+
+
+    @Test
+    public void deleteTweet() throws Exception
+    {
+
+    }
+
 }
