@@ -24,6 +24,18 @@ public class Tweet {
     @JsonProperty("entities")
     Entities entities;
 
+    @JsonProperty("retweet_count")
+    int retweetCount;
+
+    @JsonProperty("favorite_count")
+    int favoriteCount;
+
+    @JsonProperty("favorited")
+    boolean favorited;
+
+    @JsonProperty("retweeted")
+    boolean retweeted;
+
     public String getCreatedAt() {
         return createdAt;
     }
@@ -78,5 +90,37 @@ public class Tweet {
 
     public void setEntities(Entities entities) {
         this.entities = entities;
+    }
+
+    public int getRetweetCount() {
+        return retweetCount;
+    }
+
+    public void setRetweetCount(int retweetCount) {
+        this.retweetCount = retweetCount;
+    }
+
+    public int getFavoriteCount() {
+        return favoriteCount;
+    }
+
+    public void setFavoriteCount(int favoriteCount) {
+        this.favoriteCount = favoriteCount;
+    }
+
+    public boolean isFavorited() {
+        return favorited;
+    }
+
+    public void setFavorited(boolean favorited) {
+        this.favorited = favorited;
+    }
+
+    public boolean isRetweeted() {
+        return retweeted;
+    }
+
+    public void setRetweeted(boolean retweeted) {
+        this.retweeted = retweeted;
     }
 }

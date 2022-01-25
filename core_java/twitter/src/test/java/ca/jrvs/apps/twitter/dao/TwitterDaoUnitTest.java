@@ -73,7 +73,10 @@ public class TwitterDaoUnitTest {
     @Test
     public void postTweet() throws Exception
     {
-
+        //String id = ;
+        /*Tweet tweetToPost = new Tweet();
+        tweetToPost.setTweetId(100000000000);
+        tweetToPost*/
     }
 
 

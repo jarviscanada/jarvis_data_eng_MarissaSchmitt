@@ -29,8 +29,9 @@ import java.util.List;
 
 import ca.jrvs.apps.twitter.example.JsonParser;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String>{
 
     //URI Constants
@@ -110,7 +111,10 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
     private URI getPostUri(Tweet entity) throws URISyntaxException, UnsupportedEncodingException{
         PercentEscaper percentEscaper = new PercentEscaper("", false);
-        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(entity.getText()));
+        Double lat = entity.getCoordinates().getCoordinates().get(0);
+        Double lon = entity.getCoordinates().getCoordinates().get(1);
+        URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(entity.getText())
+                + AMPERSAND + "lat" + EQUAL + lat.toString() + AMPERSAND + "lon" + EQUAL + lon.toString());
         return uri;
     }
 
@@ -179,20 +183,6 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     {
         public static Tweet buildTweet(String text, Double lon, Double lat)
         {
-            /*OAuthConsumer consumer = new CommonsHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
-            consumer.setTokenWithSecret(ACCESS_TOKEN, TOKEN_SECRET);
-            PercentEscaper percentEscaper = new PercentEscaper("", false);
-            try{
-                URI uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(text)
-                        + AMPERSAND + "lat" + EQUAL + lat + AMPERSAND + "long" + EQUAL + lon);
-                HttpResponse response = retrieveResponse(uri, HttpMethod.POST);
-                String jsonStr = EntityUtils.toString(response.getEntity());
-                Tweet tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
-                return tweet;
-            }catch (URISyntaxException | IOException e) {
-                e.printStackTrace();
-            }
-            return null;*/
             Tweet tweet = new Tweet();
             Coordinates coordinatesObj = new Coordinates();
             List<Double> coordList = new ArrayList<>();
