@@ -24,6 +24,7 @@ public class TwitterController implements Controller{
     @Override
     public Tweet postTweet(String[] args) {
         if (args.length != 3){
+            System.out.println("USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"");
             throw new IllegalArgumentException("USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"");
         }
         String tweetText = args[1];
@@ -31,6 +32,8 @@ public class TwitterController implements Controller{
         String[] coordArray = coords.split(COORD_SEP);
 
         if(coordArray.length != 2 || StringUtils.isEmpty(tweetText)){
+            System.out.println("Invalid location format: \n" +
+                    "USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"");
             throw new IllegalArgumentException("Invalid location format: \n" +
                     "USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"");
         }
@@ -42,6 +45,8 @@ public class TwitterController implements Controller{
             lat = Double.parseDouble(coordArray[0]);
             lon = Double.parseDouble(coordArray[1]);
         } catch(Exception e){
+            System.out.println("Invalid location format: \n" +
+                    "USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"" + e);
             throw new IllegalArgumentException("Invalid location format: \n" +
                     "USAGE: TwitterCLIApp post \"tweet_text\" \"latitude:longitude\"", e);
         }

@@ -21,8 +21,6 @@ public class TwitterServiceTest {
     private TwitterService twitterService;
     @Before
     public void setUp() {
-        //this.dao = new
-        //this.dao = new CrdDao() {};
         this.twitterService = new TwitterService(this.dao);
     }
 
